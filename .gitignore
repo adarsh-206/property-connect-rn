@@ -72,3 +72,18 @@ yarn-error.log
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+
+# Ignore build files and Gradle dependencies
+android/.gradle/
+android/app/build/
+android/build/
+android/captures/
+android/.idea/
+android/app/src/debug/
+android/app/src/profile/
+android/gradlew
+android/gradlew.bat
+android/gradle/
+android/local.properties
+android/app/.cxx/Debug
