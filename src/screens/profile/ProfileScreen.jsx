@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {View, Text, ScrollView, Image, TouchableOpacity} from 'react-native';
 import {post} from '../../services/apiService';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {API_URL} from '@env';
 
 export default function ProfileScreen({navigation}) {
   const [token, setToken] = useState(null);
@@ -20,7 +21,9 @@ export default function ProfileScreen({navigation}) {
       await AsyncStorage.removeItem('token');
       setToken(null);
       navigation.replace('LoginScreen');
-    } catch (error) {}
+    } catch (error) {
+      console.log('error', error);
+    }
   };
 
   return (
@@ -32,6 +35,8 @@ export default function ProfileScreen({navigation}) {
         />
         <Text className="text-2xl font-bold text-gray-900 mt-4">John Doe</Text>
         <Text className="text-md text-gray-600">johndoe@example.com</Text>
+
+        <Text className="text-dark text-lg">{API_URL}</Text>
 
         <View className="w-full mt-8 pt-4">
           <TouchableOpacity

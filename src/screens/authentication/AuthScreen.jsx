@@ -47,9 +47,14 @@ const AuthScreen = ({navigation}) => {
   };
 
   useEffect(() => {
-    if (checkAuth()) {
-      navigation.replace('MainTabs');
-    }
+    const authenticate = async () => {
+      const isAuthenticated = await checkAuth();
+      if (isAuthenticated) {
+        navigation.replace('MainTabs');
+      }
+    };
+
+    authenticate();
   }, []);
 
   return (
